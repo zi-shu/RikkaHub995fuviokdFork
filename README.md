@@ -19,9 +19,11 @@
 
 成品包在 [Releases](https://github.com/zi-shu/RikkaHub995fuviokdFork/releases)。
 
-- `rikkahub-F1.0.2-fuiviokd-signed.apk`，223,800,762 字节，arm64-v8a
-- 版本号 `F1.0.2`，versionCode 194
+- `rikkahub-F1.0.2-fuiviokd-signed.apk`，224,300,474 字节，arm64-v8a
+- 包名 `fuiviokd.re.rikka`，versionName `F1.0.2`，versionCode 194
 - 签名自签，CN=RikkaHub Test Build
+- MD5 `43409fe7597e8d2f766a79d4b6d162a2`
+- SHA-256 `996c7aa4d4e849f7bfed5d0afd7ee8c772650ba768954d27c800a0585d53546e`
 
 原版 RikkaHub 的签名与本包不同。装过官方版的设备，两个应用互不影响，因为包名已经改掉。
 装过旧改款包的设备，直接覆盖安装即可，数据保留。

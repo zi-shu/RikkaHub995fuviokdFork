@@ -1,7 +1,7 @@
 # 改动说明
 
 基线包：`rikkahub-2.0.01-arm64-v8a.apk`，223,434,474 字节，versionCode 194。
-成品包：`rikkahub-F1.0.2-fuiviokd-signed.apk`，223,800,762 字节。
+成品包：`rikkahub-F1.0.2-fuiviokd-signed.apk`，224,300,474 字节。
 包名：`me.rerere.rikkahub` 改为 `fuiviokd.re.rikka`。
 
 ## 为什么改 smali
