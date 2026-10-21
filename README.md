@@ -1,46 +1,65 @@
-----------以下是995fuiviokd的项目描述----------
+# RikkaHub 改款 · 修复分支
 
-# RikkaHub APK 下载
+基于 [995fuviokd](https://github.com/995fuviokd-crypto/rikkahub-apk-download) 的改款 APK，反汇编后修补。
+本仓库收录改动过的 smali 与构造脚本，不含原始 Kotlin 源码。
 
-本仓库**仅提供编译好的 APK**，方便直接下载安装。
+改款只发布 APK，源码仓库私密。所以全部改动落在字节码层，用 smali 完成。
 
-> 源码仓库为私密仓库，本仓库不含任何源代码。
+## 修了什么
+
+| # | 问题 | 状态 |
+| --- | --- | --- |
+| 1 | 启用技能后，DeepSeek 报 `400 Tool names must be unique` | 已修 |
+| 2 | 开启悬浮窗后，进「后台保活」页闪退（ANR） | 已修 |
+| 3 | 与原版 RikkaHub 不能装在同一台设备 | 已修，包名改为 `fuiviokd.re.rikka` |
+
+改动位置、原指令、改后指令与验证方法写在 [`CHANGES.md`](CHANGES.md) 和 [`docs/`](docs/)。
 
 ## 下载
 
-前往 [Releases](../../releases) 页面下载最新版本。
+成品包在 [Releases](https://github.com/zi-shu/RikkaHub995fuviokdFork/releases)。
 
-- 推荐 `rikkahub-*-universal.apk`（全 ABI，兼容所有设备）
-- 主流手机可用 `rikkahub-*-arm64-v8a.apk`（体积更小）
+- `rikkahub-F1.0.2-fuiviokd-signed.apk`，223,800,762 字节，arm64-v8a
+- 版本号 `F1.0.2`，versionCode 194
+- 签名自签，CN=RikkaHub Test Build
 
-## 安装
+原版 RikkaHub 的签名与本包不同。装过官方版的设备，两个应用互不影响，因为包名已经改掉。
+装过旧改款包的设备，直接覆盖安装即可，数据保留。
 
-1. 下载 APK 到手机
-2. 允许「安装未知来源应用」
-3. 安装后即可使用
+## 目录
 
-**注意**：本包为自签名构建，若你已安装官方渠道版本，需先卸载再安装（签名不同）。
+```
+CHANGES.md                        改动总览与重建流程
+docs/01-deepseek-tool-dedupe.md   修复一：工具名重复
+docs/02-bubble-picker-anr.md      修复二：悬浮球选择器 ANR
+docs/03-package-rename.md         改动三：包名与版本号
+smali/classes2/…/ChatService.smali
+smali/classes3/…/SettingExtensionsPageKt.smali
+smali/classes3/…/UpdateCardKt.smali
+manifest/AndroidManifest-原版文本.xml
+tools/                            打补丁与重打包脚本
+```
 
-----------以上是995fuiviokd的项目描述----------
+`smali/` 里的是改后的完整文件，可以直接用 `smali a` 汇编回 dex。
+`tools/` 里的脚本按 `CHANGES.md` 的顺序执行。
 
-----------2026/10/21-1850开始----------
+## 已知问题
 
-首先感谢re-ovo
+- Linux 备份文件无法正常导入。未定位。
+- `UpdateCardKt` 解析 `F1.0.2` 失败，更新检查不可用。不打算修。
 
-无论如何，感谢995fuiviokd，他融入了特别多的东西
-本人从未系统化学习过编程，本项目里所有工作都是Deepseek-flash模型在Rikkahub官方版下做的。
-本分支通过反编译，新增源代码。
+## 来源
 
-修复的BUG
-1.修复了开了悬浮窗后进入设置->拓展与保活->后台保活栏目后软件崩溃软退的问题。
-  LLM发现，安卓错误报告里没有记录到Java异常导致的Rikka的崩溃，是ANR。
-  在开启了悬浮窗后，功能扩展页最后一张卡「后台保活」里的悬浮球样式选择器一次把 8 种样式都画成真实的 Android View（BubbleView，44dp）。
-  滚到页面底部时，这 8 个嵌入 View 被创建和测量，主线程一帧超过 5 秒，系统判 ANR 并杀掉进程。
+- 官方 RikkaHub：<https://github.com/rikkahub/rikkahub>，作者 re-ovo，AGPL-3.0
+- 改款包：<https://github.com/995fuviokd-crypto/rikkahub-apk-download>，作者 995fuviokd，仅二进制
+- 本仓库的修改：反汇编 995fuviokd 的 `rikkahub-2.0.01-arm64-v8a.apk` 得到
 
-2.修复了不能和原版rikkahub装在同一台设备的问题。
-  现在包名改成了fuiviokd.re.rikka，这样官方版可以和该分支版共存在一个设备。
+本仓库的所有工作，由未受过系统编程训练的维护者借助 DeepSeek 模型完成。
 
-待修复的BUG
-1.Linux备份文件无法正常导入
+## 许可
 
-----------2026/10/21-1947结束----------
+[AGPL-3.0](LICENSE)。上游为 AGPL-3.0，本仓库作为衍生作品沿用同一许可。
+
+## 免责
+
+非官方构建，与 re-ovo 无关。使用风险自负。
