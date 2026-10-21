@@ -56,7 +56,7 @@ tools/                            打补丁与重打包脚本
 - 改款包：<https://github.com/995fuviokd-crypto/rikkahub-apk-download>，作者 995fuviokd，仅二进制
 - 本仓库的修改：反汇编 995fuviokd 的 `rikkahub-2.0.01-arm64-v8a.apk` 得到
 
-本仓库的所有工作，由未受过系统编程训练的维护者借助 DeepSeek 模型完成。
+维护者未受过系统编程训练。本项目几乎全部在 @re-ovo 编写的小型 LLM Agent——RikkaHub 中完成。所用模型为 DeepSeek-flash-4.1。
 
 ## 许可
 
