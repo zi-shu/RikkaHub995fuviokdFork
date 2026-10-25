@@ -1,0 +1,12 @@
+{
+  "tag_name": "v0.0.3",
+  "published_at": "2026-10-25T04:39:16Z",
+  "body": "## F1.0.3 修复\n\n- 修复含 Linux 环境的备份无法恢复。空目录不再写入归档与清单。\n- 完整性校验失败时显示真实原因，不再是一句「设置无效或版本不受支持」。\n\n包名 `fuiviokd.re.rikka`，versionName `F1.0.3`，versionCode 195，arm64-v8a，自签名。\n同签名可直接覆盖 F1.0.2 安装，数据保留。",
+  "assets": [
+    {
+      "name": "app-arm64-v8a-release.apk",
+      "browser_download_url": "https://github.com/zi-shu/RikkaHub995fuviokdFork/releases/download/F1.0.3/rikkahub-F1.0.3-fuiviokd-signed.apk",
+      "size": 224300474
+    }
+  ]
+}
